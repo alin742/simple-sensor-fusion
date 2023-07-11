@@ -20,6 +20,14 @@
   #define DONE 0
 #endif
 
+float pitchFromAcc(float ax, float az) {
+  return std::atan2(ax, az);
+}
+
+float rollFromAcc(float ay, float az) {
+  return std::atan2(ay, az);
+}
+
 /**
   This Function takes in accelerations and rotational velocities
    and calcultes the orientation of the sensor based on these data.
@@ -29,7 +37,9 @@
   function. 
 
   REF1: https://en.wikipedia.org/wiki/Sensor_fusion
-  REF2: 
+  REF2: https://stackoverflow.com/questions/68457455/calculation-of-yaw-pitch-and-roll-from-acceleration
+  REF3: https://core.ac.uk/download/18293757.pdf
+  REF4: https://www.youtube.com/watch?v=k5i-vE5rZR0
 
   NOTE: all the variables are passed in as pointers, C/C++ 
   does not have any way to pass arrays to a function or output arrays.
@@ -58,9 +68,9 @@ void sensor_fusion(float *acc, float *rot, float *output_angle) {
 
   //////////////////////////////////////////////////
 
-  // output_angle[0] = [PUT HERE THE OUTPUT ANGLE OF X];
-  // output_angle[1] = [PUT HERE THE OUTPUT ANGLE OF X];
-  // output_angle[2] = [PUT HERE THE OUTPUT ANGLE OF X];
+  // output_angle[0] = [PUT HERE THE OUTPUT ANGLE OF PITCH];
+  // output_angle[1] = [PUT HERE THE OUTPUT ANGLE OF ROLL];
+  // output_angle[2] = [PUT HERE THE OUTPUT ANGLE OF YAW];
 }
 
 
